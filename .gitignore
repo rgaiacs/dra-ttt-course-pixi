@@ -1,2 +1,8 @@
 # pixi environments
 .pixi
+
+/.quarto/
+/index_files/
+index.html
+
+**/*.quarto_ipynb
