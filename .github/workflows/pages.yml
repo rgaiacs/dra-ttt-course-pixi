@@ -8,6 +8,9 @@ on:
 jobs:
   quarto:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     steps:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
