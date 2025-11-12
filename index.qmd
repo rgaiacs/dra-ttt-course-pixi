@@ -4,21 +4,44 @@ author: Raniere Silva
 format: revealjs
 ---
 
+## {background-image="img/screenshot-pixi.sh.png" background-position="top"}
+
+::: aside
+Screenshot of https://pixi.sh/latest/ on 2025-09-03.
+:::
+
 ## Why?
 
-1. Avoid users to have to walk pass the [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
+1. Operating system (OS) and programming language agnostic.
+2. Avoid users to have to walk pass the [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
    - Long chains of dependencies
    - Conflicting dependencies
 
-2. Avoid users reporting bugs that only work on their computer.
-3. Share alias for the command line interface (cli).
+3. Avoid users reporting bugs that only work on their computer.
+4. Share alias for the command line interface (cli).
+
+## How?
+
+1. Pixi uses its own package repository.
+2. Pixi uses its own copy of the dependencies.
+3. Pixi locks the full dependency tree.
+4. Pixi will check if all the dependencies are satisfied before execute tasks.
 
 ## Limitations
 
-1. Computation (as in number of CPU)
-2. Storage (as in size of HDD)
-3. Transfer (as in speed of Internet connection)
+1. Package repository
+
+   Because Pixi primarily install packages from [conda-forge](https://github.com/conda-forge).
+2. Computation (as in number of CPU)
+
+   Because Pixi will check the dependencies before each task execution.
+3. Storage (as in size of HDD)
+
+   Because Pixi will duplicate the dependencies for each project.
+4. Transfer (as in speed of Internet connection)
+
+   Because some dependencies can be in the 3 digits MB.
 
 ## Where are we
 
@@ -39,15 +62,17 @@ format: revealjs
 Internet speed based on https://www.reddit.com/r/coolguides/comments/1l95e53/a_cool_guide_to_average_us_internet_speeds_over/#lightbox
 :::
 
-## {background-image="img/screenshot-pixi.sh.png" background-position="top"}
-
-::: aside
-Screenshot of https://pixi.sh/latest/ on 2025-09-03.
-:::
-
 ## `pixi.toml`
 
 Pixi uses the file `pixi.toml` as the human readable configuration file.
+
+::: {.callout-tip}
+`pixi.toml` can be created using
+
+```bash
+pixi init
+```
+:::
 
 ## Example of `pixi.toml`
 
@@ -68,6 +93,10 @@ python = ">=3.14.0,<3.15"
 ## `pixi.lock`
 
 Pixi uses the file `pixi.lock` as the machine readable configuration file and includes a full description of the environment.
+
+::: {.callout-important}
+`pixi.lock` **must** be included in your version controled repository.
+:::
 
 ## Example of `pixi.lock`
 
@@ -111,6 +140,16 @@ packages:
 ## `.pixi`
 
 Pixi uses the directory `.pixi` to store a working copy of all the dependencies of the project.
+
+::: {.callout-tip}
+`.pixi` **must** be excluded from your version controled repository.
+
+Pixi will configure your `.gitignore` when you run
+
+```bash
+pixi init
+```
+:::
 
 ## Example of `.pixi`
 
