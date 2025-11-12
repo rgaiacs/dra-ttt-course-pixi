@@ -21,6 +21,12 @@ Screenshot of https://pixi.sh/latest/ on 2025-09-03.
 3. Avoid users reporting bugs that only work on their computer.
 4. Share alias for the command line interface (cli).
 
+## Use containers instead
+
+Pixi does **not** virtualise the hardware and, because of it, you can**not** reuse ports.
+
+If you are working in a monolithic project that has one or more microservices, you should use containers (for example, [Podman](https://podman.io/), [Docker](https://www.docker.com/), [Apptainer](https://apptainer.org/), ...) instead of Pixi.
+
 ## How?
 
 1. Pixi uses its own package repository.
@@ -181,4 +187,163 @@ pixi init
         │   ├── python3.14
         │   │   ├── abc.py
         ⋮   ⋮    ⋮
+```
+
+## Installation
+
+### Windows
+
+```powershell
+powershell -ExecutionPolicy ByPass `
+  -c "irm -useb https://pixi.sh/install.ps1 | iex"
+```
+
+### Unix-like
+
+```bash
+curl -fsSL https://pixi.sh/install.sh | sh
+```
+
+### Other Methods
+
+Visit the [Installation](https://pixi.sh/latest/installation/) section on Pixi's documentation.
+
+## Renata's use case
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[![Image by Netguru.](img/446522.svg)](https://www.svgrepo.com/svg/446522/avatar-portrait)
+:::
+
+::: {.column width="50%"}
+- Data analysis with [R](https://cran.r-project.org/)
+- Data visualisation with [ggplot2](https://ggplot2.tidyverse.org/)
+:::
+
+::::
+
+## Renata's use case - Cheat sheet
+
+1.  Start environment:
+
+    ```bash
+    pixi init
+    ```
+
+2.  Add dependencies:
+
+    ```bash
+    pixi add r-base r-ggplot2
+    ```
+
+3.  Launch "virtual" shell:
+
+    ```bash
+    pixi shell
+    ```
+
+4.  Run R command:
+
+    ```bash
+    Rscript -e "1 + 1"
+    ```
+
+## Camila's use case
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[![Image by Netguru.](img/446477.svg)](https://www.svgrepo.com/svg/446477/avatar)
+:::
+
+::: {.column width="50%"}
+- New application written in C
+:::
+
+::::
+
+## Camila's C code
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello World");
+
+    return 0;
+}
+```
+
+## Camila's use case - Cheat sheet
+
+1.  Start environment:
+
+    ```bash
+    pixi init
+    ```
+
+2.  Add dependencies:
+
+    ```bash
+    pixi add gcc
+    ```
+
+3.  Create task:
+
+    ```bash
+    pixi task add make "gcc -o hello hello.c"
+    ```
+
+4.  Run task:
+
+    ```bash
+    pixi run make
+    ```
+
+## Paige's use case
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[![Image by Netguru.](img/446491.svg)](https://www.svgrepo.com/svg/446491/avatar)
+:::
+
+::: {.column width="50%"}
+- Image processing with Python
+- Jupyter Notebook for exploratory analysis
+:::
+
+::::
+
+## Paige's use case - Cheat sheet
+
+1.  Start environment:
+
+    ```bash
+    pixi init --format pyproject
+    ```
+
+2.  Add dependencies:
+
+    ```bash
+    pixi add Pillow requests jupyter notebook
+    ```
+
+3.  Create task:
+
+    ```bash
+    pixi run jupyter notebook
+    ```
+
+## Paige's use case - Jupyter Notebook
+
+```python
+import requests
+from PIL import Image
+from io import BytesIO
+
+with requests.get('https://github.com/python-pillow/Pillow/blob/main/Tests/images/hopper.jpg?raw=true') as r:
+    if r.status_code == 200:
+        hopper = Image.open(BytesIO(r.content))
 ```
