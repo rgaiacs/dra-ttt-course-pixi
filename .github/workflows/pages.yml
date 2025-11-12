@@ -14,7 +14,9 @@ jobs:
     steps:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
-          quarto render --output-dir public
+          quarto check
+      - run: |
+          quarto render index.qmd --output-dir public --log-level info
       - name: Upload artifact to GitHub
         uses: actions/upload-pages-artifact@v4
         with:
