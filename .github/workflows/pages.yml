@@ -13,12 +13,7 @@ jobs:
       id-token: write
     steps:
       - uses: quarto-dev/quarto-actions/setup@v2
-      - run: |
-          quarto check
-      - run: |
-          ls -1
-      - run: |
-          head index.qmd
+      - uses: actions/checkout@v5
       - run: |
           quarto render index.qmd --output-dir public --log-level info
       - name: Upload artifact to GitHub
