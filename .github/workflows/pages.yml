@@ -1,7 +1,9 @@
 name: quarto
 
-on: 
-  branch: main
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   quarto:
