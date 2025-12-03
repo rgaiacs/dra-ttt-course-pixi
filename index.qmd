@@ -301,6 +301,28 @@ int main() {
     pixi run make
     ```
 
+## Caution when creating tasks
+
+Pixi uses [Deno](https://deno.com/)'s implementation of [shell](https://docs.deno.com/runtime/reference/cli/task/#built-in-commands).
+
+1.  Start environment:
+
+    ```bash
+    pixi init
+    ```
+
+3.  Create task:
+
+    ```bash
+    pixi task add myhead "head --help"
+    ```
+
+4.  Run task:
+
+    ```bash
+    pixi run myhead
+    ```
+
 ## Paige's use case
 
 :::: {.columns}
