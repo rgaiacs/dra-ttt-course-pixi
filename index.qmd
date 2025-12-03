@@ -4,6 +4,16 @@ author: Raniere Silva
 format: revealjs
 ---
 
+## Agenda
+
+| Duration | Content |
+| --- | --- |
+| 15min | Introduction and Installation |
+| 5min | Break |
+| 15min | Use case 1 and 2 |
+| 5min | Break |
+| 15min | Use case 3 and 4 |
+
 ## {background-image="img/screenshot-pixi.sh.png" background-position="top"}
 
 ::: aside
