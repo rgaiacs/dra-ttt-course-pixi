@@ -374,3 +374,73 @@ with requests.get(
 
 hopper
 ```
+
+## Multi Environment (1/3)
+
+1.  Create `hello.py` with
+
+    ```python
+    try:
+        print("Hello!")
+    except RuntimeError, ValueError:
+        print('Except.')
+    ```
+
+2.  Start environment:
+
+    ```bash
+    pixi init
+    ```
+
+3.  Create task:
+
+    ```bash
+    pixi task add hello "python hello.py"
+    ```
+
+## Multi Environment (2/3)
+
+4.  Edit `pixi.toml` to include
+
+    ```
+    [feature.py313.dependencies]
+    python = "~=3.13.0"
+
+    [feature.py314.dependencies]
+    python = "~=3.14.0"
+
+    [environments]
+    py313 = ["py313"]
+    py314 = ["py314"]
+    ```
+
+## Multi Environment (3/3)
+
+4.  Run task:
+
+    ```bash
+    pixi run -e py314 hello
+    ```
+
+5.  Run task:
+
+    ```bash
+    pixi run -e py313 hello
+    ```
+
+## More features
+
+1.  Integration with
+    - VSCode
+    - RStudio
+    - JupyterLab
+    - GitHub Actions
+    - ...
+2.  Support to multi platform.
+
+    For example, it is possible to specify Python 3.14 for GNU/Linux and Python 3.13 for Windows.
+
+## That's All Folks
+
+1.  Read [Pixi's documentation](https://pixi.sh/latest/).
+2.  Ask question at [Pixi's Discussions hosted on GitHub](https://github.com/prefix-dev/pixi/discussions).
