@@ -349,4 +349,6 @@ with requests.get(
     ) as r:
     if r.status_code == 200:
         hopper = Image.open(BytesIO(r.content))
+
+hopper
 ```
