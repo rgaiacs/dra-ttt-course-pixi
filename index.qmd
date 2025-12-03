@@ -343,7 +343,10 @@ import requests
 from PIL import Image
 from io import BytesIO
 
-with requests.get('https://github.com/python-pillow/Pillow/blob/main/Tests/images/hopper.jpg?raw=true') as r:
+with requests.get(
+    'https://github.com/python-pillow/Pillow/' +
+    'blob/main/Tests/images/hopper.jpg?raw=true'
+    ) as r:
     if r.status_code == 200:
         hopper = Image.open(BytesIO(r.content))
 ```
