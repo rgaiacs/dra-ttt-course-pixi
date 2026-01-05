@@ -17,8 +17,12 @@ format: revealjs
 ## {background-image="img/screenshot-pixi.sh.png" background-position="top"}
 
 ::: aside
-Screenshot of https://pixi.sh/latest/ on 2025-09-03.
+Screenshot of https://pixi.prefix.dev/latest/ on 2026-01-05.
 :::
+
+## Computational environment
+
+![](img/computational-environment.svg)
 
 ## Why?
 
