@@ -53,7 +53,7 @@ If you are working in a project that requires the above, you should use containe
 1. Pixi uses its own package repository.
 2. Pixi uses its own copy of the dependencies.
 3. Pixi locks the full dependency tree.
-4. Pixi will check if all the dependencies are satisfied before execute tasks.
+4. Pixi will check if all the dependencies are satisfied before executing tasks.
 
 ## Limitations
 
