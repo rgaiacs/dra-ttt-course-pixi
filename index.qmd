@@ -40,9 +40,13 @@ format: revealjs
 Screenshot of https://pixi.prefix.dev/latest/ on 2026-01-05.
 :::
 
-## Usage
+## File system used by Pixi
 
 ![](img/pixi.svg)
+
+## File system used by Conda
+
+![](img/conda.svg)
 
 ## Use containers instead
 
@@ -52,6 +56,8 @@ If your project has one of the following requirements
 - use a different version of C standard library
 
 you should use containers (for example, [Podman](https://podman.io/), [Docker](https://www.docker.com/), [Apptainer](https://apptainer.org/), ...) instead of Pixi.
+
+Also, you **must** use containers if you want complete isolation from the host machine.
 
 ## How?
 
