@@ -14,12 +14,6 @@ format: revealjs
 | 5min | Break |
 | 15min | Instructor example |
 
-## {background-image="img/screenshot-pixi.sh.png" background-position="top"}
-
-::: aside
-Screenshot of https://pixi.prefix.dev/latest/ on 2026-01-05.
-:::
-
 ## Computational environment
 
 ![](img/computational-environment.svg)
@@ -31,22 +25,33 @@ Screenshot of https://pixi.prefix.dev/latest/ on 2026-01-05.
 ## Why?
 
 1. Operating system (OS) and programming language agnostic.
-2. Avoid users to have to walk pass the [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
+2. Avoid user privilege escalation, i.e. `sudo`.
+3. Avoid users to have to walk pass the [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
    - Long chains of dependencies
    - Conflicting dependencies
 
-3. Avoid users reporting bugs that only work on their computer.
-4. Share alias for the command line interface (cli).
+4. Avoid users reporting bugs that only work on their computer.
+5. Share alias for the command line interface (cli).
+
+## {background-image="img/screenshot-pixi.sh.png" background-position="top"}
+
+::: aside
+Screenshot of https://pixi.prefix.dev/latest/ on 2026-01-05.
+:::
+
+## Usage
+
+![](img/pixi.svg)
 
 ## Use containers instead
 
-Pixi does **not** virtualise the "hardware" and, because of it, you can**not**
+If your project has one of the following requirements
 
+- run two database serves simultaneous
 - use a different version of C standard library
-- duplicate ports
 
-If you are working in a project that requires the above, you should use containers (for example, [Podman](https://podman.io/), [Docker](https://www.docker.com/), [Apptainer](https://apptainer.org/), ...) instead of Pixi.
+you should use containers (for example, [Podman](https://podman.io/), [Docker](https://www.docker.com/), [Apptainer](https://apptainer.org/), ...) instead of Pixi.
 
 ## How?
 
@@ -55,7 +60,7 @@ If you are working in a project that requires the above, you should use containe
 3. Pixi locks the full dependency tree.
 4. Pixi will check if all the dependencies are satisfied before executing tasks.
 
-## Limitations
+## Requirements
 
 1. Package repository
 
@@ -214,12 +219,18 @@ pixi init
 
 ### Windows
 
+On **PowerShell**, run
+
 ```powershell
 powershell -ExecutionPolicy ByPass `
   -c "irm -useb https://pixi.sh/install.ps1 | iex"
 ```
 
+Pay attention to the backtick (`` ` ``)at the end of the first line.
+
 ### Unix-like
+
+On your terminal emulator, run
 
 ```bash
 curl -fsSL https://pixi.sh/install.sh | sh
