@@ -319,6 +319,12 @@ Visit the [Installation](https://pixi.sh/latest/installation/) section on Pixi's
     pixi task add jupyter "jupyter lab --no-browser"
     ```
 
+4.  Share files:
+
+    ```bash
+    git add . && git commit -m "Add pixi config" && git push origin main
+    ```
+
 ## Environment activation - Cheat sheet
 
 1.  Activate environment:
