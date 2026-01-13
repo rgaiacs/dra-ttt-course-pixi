@@ -268,22 +268,28 @@ Visit the [Installation](https://pixi.sh/latest/installation/) section on Pixi's
 1.  Copy course material:
 
     ```bash
-    git clone git@github.com:rgaiacs/dra-ttt-course-pixi-mwe.git
+    git clone https://github.com/rgaiacs/dra-ttt-course-pixi-mwe.git
     ```
 
-2.  Check tasks created by instructor:
+2. Change directory
+
+    ```bash
+    cd dra-ttt-course-pixi-mwe
+    ```
+
+3.  Check tasks created by instructor:
 
     ```bash
     pixi task list
     ```
 
-3.  Start Jupyter Lab:
+4.  Start Jupyter Lab:
 
     ```bash
-    pixi run jupyter
+    pixi run lab
     ```
 
-4.  Convert Notebook to R script
+5.  Convert Notebook to R script
 
     ```bash
     pixi run jupyter nbconvert notes.ipynb --to script
@@ -322,7 +328,7 @@ Visit the [Installation](https://pixi.sh/latest/installation/) section on Pixi's
 3.  Create alias for tasks:
 
     ```bash
-    pixi task add jupyter "jupyter lab --no-browser"
+    pixi task add lab "jupyter lab --no-browser"
     ```
 
 4.  Share files:
