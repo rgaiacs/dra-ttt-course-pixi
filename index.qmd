@@ -232,7 +232,7 @@ powershell -ExecutionPolicy ByPass `
   -c "irm -useb https://pixi.sh/install.ps1 | iex"
 ```
 
-Pay attention to the backtick (`` ` ``)at the end of the first line.
+Pay attention to the backtick (`` ` ``) at the end of the first line.
 
 ### Unix-like
 
